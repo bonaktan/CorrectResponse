@@ -2,3 +2,50 @@
 BG: 0d1b2a
 Accents: 1b263b, 415a77, 778da9
 Text: e0e1dd */
+
+/* Fonts */
+@font-face { /* regular */
+    font-family: Inconsolata;
+    src: url(InconsolataMono.ttf);
+}
+@font-face { /* bold */
+    font-family: Inconsolata;
+    src: url(InconsolataMonoBold.ttf);
+}
+
+/* Variables */
+:root {
+    --BGColor: #0d1b2a;
+    --Accent1: #1b263b;
+    --Accent2: #415a77;
+    --Accent3: #778da9;
+    --FGColor: #e0e1dd;
+}
+/* General */
+body {
+    font-family: Inconsolata;
+    background-color: var(--BGColor);
+    color: var(--FGColor);
+    color-scheme: dark;
+}
+#Header {
+    background-color: var(--Accent1);
+    padding: 0%;
+    position: absolute;
+    top: 0%; left: 0%;
+    display: inline-grid;
+    width: 100%;
+    grid-template-columns: 75% 25%;
+}
+
+#SwapDisplays {
+    position: relative;
+    background-color: inherit;
+    border: 100% solid var(--FGColor);
+    border-radius: 10%;
+    padding: 5%;
+    /* center a button */
+    top: 50%; left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
