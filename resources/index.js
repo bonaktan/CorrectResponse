@@ -5,5 +5,7 @@ $( document ).ready(function() {
   for (i=1; i<=25; i++) {
     $(".Display").append(DisplayCells.replace("?", i))
     $(".Display").append(DisplayCells.replace("?", i+25))
+    document.querySelector("#Display1").innerHTML = "0"
+
   }
 });
