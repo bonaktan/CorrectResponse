@@ -27,6 +27,7 @@ body {
     background-color: var(--BGColor);
     color: var(--FGColor);
     color-scheme: dark;
+    font-size: 1.5em;
 }
 #Header {
     position: fixed; top: 0%; left: 0%;
@@ -34,7 +35,6 @@ body {
     display: grid; grid-template-columns: 70% 20% 10%;
     background-color: var(--Accent2);
 }
-
 #Content {
     margin-top: 3.1em;
 }

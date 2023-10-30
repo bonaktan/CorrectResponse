@@ -1,15 +1,25 @@
-$( document ).ready(function() {
-  $('.Count').hide()
-  // TODO: Adjustable Counter
-  const template = ['<div>', "", '.</div><div id="Display', "", '"></div>']
-  for (i=1; i<=25; i++) {
-    var cache = template;
-    template[1] = i; template[3] = i;
-    $(".Display").append(template.join(''));
-    template[1] = i+25; template[3] = i+25;
-    $(".Display").append(template.join(''));
-    document.querySelector("#Display"+i).innerHTML = "0"; j = i+25
-    document.querySelector("#Display"+j).innerHTML = "0"; i 
+$(document).ready(function() {
 
+  // Global Constants/Variables
+  const inputregex = /(^[0-9]+$)|((^[0-9]+)-([0-9]+$))/g;
+  const template = ['<div>', "", '.</div><div id="Display', "", '"></div>'];
+  var items = Math.floor(24/2); /* TODO: Modifiable at ui level */;
+
+
+  $('.Count').hide();
+  for (i=1; i<=items; i++) {
+    var cache = template;
+    cache[1] = i; cache[3] = i;
+    $(".Display").append(cache.join(''));
+    cache[1] = i+items; cache[3] = i+items;
+    $(".Display").append(cache.join(''));
+    document.querySelector("#Display"+i).innerHTML = "0"; j = i+items;
+    document.querySelector("#Display"+j).innerHTML = "0";
   }
+
+  $("#NumberSubmit").click(function() {
+     
+  });
 });
+
+
