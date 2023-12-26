@@ -1,0 +1,29 @@
+:root { /* Colors */
+    --BGColor: #1a1a1a;
+    --Accent: #2a2a2a;
+    color-scheme: dark;
+}
+
+body {
+    background-color: var(--BGColor);
+    margin: 0;
+}
+
+.NavbarRoot {
+    display: flex;
+    position: sticky;
+    align-items: center; justify-content: center;
+    top: 0px;
+    cursor: pointer;
+    background-color: var(--Accent);
+}
+.NavbarList {
+    width: 50%; display: flex;
+}
+.NavbarList li {
+    list-style: none; padding: 1%;
+}
+
+.main {
+    margin: 8px;
+}
