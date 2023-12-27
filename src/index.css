@@ -14,7 +14,6 @@ body {
     position: sticky;
     align-items: center; justify-content: center;
     top: 0px;
-    cursor: pointer;
     background-color: var(--Accent);
 }
 .NavbarList {
@@ -23,7 +22,9 @@ body {
 .NavbarList li {
     list-style: none; padding: 1%;
 }
-
+#NavbarGap {
+    width: 40%;
+}
 .main {
     margin: 8px;
 }
