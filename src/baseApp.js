@@ -1,4 +1,13 @@
-export function Navbar(props) {
+import ReactDOM from 'react-dom/client';
+
+export function Navbar({count}) {
+    var state=1;
+    function MainViewSwitch() {
+        let main = ReactDOM.createRoot(document.getElementsByClassName("Main")[0])
+        main.render((state===0) ? <Tablecount Count={count}/> : <Display Count={count} />)
+        state = (state===0) ? 1 : 0
+    }
+
     return (
     <nav className="NavbarRoot">
         <ul className="NavbarList">
@@ -6,23 +15,28 @@ export function Navbar(props) {
             <li id="NavbarGap"></li>
             <li className="NavbarSettings">Settings</li> {/* TODO: Popup sa Settings, AAAAA BAT AKO NAGLIPAT
             NG FRAMEWORK. */}
-            <li><button>SWITCH</button></li>
+            <li><button onClick={MainViewSwitch}>SWITCH</button></li>
         </ul>
     </nav>
 );}
 
-export function Tablecount({Count}) {
-    const TablecountCell= (props) => <p>{props.number}. {props.count}</p> 
-    let template = <div className="TablecountRoot">tite</div>;
-    template = [...Array(parseInt(Count.items)),].map((value, index) => (
-            <TablecountCell number={index + 1} count={index} />));
+export function Tablecount({Count}) { // BUG HERE
+    const TablecountCell = (props) => <p>{props.number}. {props.count}</p> 
+    let template = [...Array(parseInt(Count.items)),].map((value, index) => (
+            <TablecountCell number={index+1} count={Count.value[index]} />));
     return (
         <div className="TablecountRoot">
-            <div className="TablecountInput">
-                <input id="TablecountInputText" placeholder="Text"></input>
-                <button id="TablecountInputButton">Submit</button>
-            </div>
+            <form className="TablecountInput" onSubmit={Count.Update}>
+                <input id="TablecountInputText" placeholder="Number" title="test" 
+                onInvalid={Count.inputSanity} onInput={Count.inputSanity} type="number"></input>
+                <input type="submit" id="TablecountInputButton"/>
+            </form>
             {template}
         </div>
     ); // TODO: LAYOUTING.
+}
+
+export function Display({Count}) {
+    
+    return <p>tite</p>
 }

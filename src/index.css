@@ -17,7 +17,7 @@ body {
     background-color: var(--Accent);
 }
 .NavbarList {
-    width: 50%; display: flex;
+    width: 70%; display: flex;
 }
 .NavbarList li {
     list-style: none; padding: 1%;
@@ -25,6 +25,6 @@ body {
 #NavbarGap {
     width: 40%;
 }
-.main {
+.Main {
     margin: 8px;
 }
