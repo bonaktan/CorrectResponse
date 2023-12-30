@@ -1,2 +1,0 @@
-:root{--BGColor:#1a1a1a;--Accent:#2a2a2a;color-scheme:dark}body{background-color:#1a1a1a;background-color:var(--BGColor);margin:0}.NavbarRoot{align-items:center;background-color:#2a2a2a;background-color:var(--Accent);display:flex;justify-content:center;position:-webkit-sticky;position:sticky;top:0}.NavbarList{display:flex;width:50%}.NavbarList li{list-style:none;padding:1%}#NavbarGap{width:40%}.main{margin:8px}
-/*# sourceMappingURL=main.a43bfed5.css.map*/
