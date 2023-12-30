@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom/client';
 
 import Counter from "./counter.js"
 import './index.css';
-import { Navbar, Tablecount} from "./baseApp.js"
+import { Navbar, Tablecount } from "./baseApp.js"
 
 
 function init() {

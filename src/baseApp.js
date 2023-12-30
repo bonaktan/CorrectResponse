@@ -23,16 +23,24 @@ export function Navbar({count}) {
 
 export function Tablecount({Count}) { // BUG HERE
     const TablecountCell = (props) => <p>{props.number}. {props.count}</p> 
-    let template = [...Array(parseInt(Count.items)),].map((value, index) => (
+    //let template = [...Array(parseInt(Count.items)),].map((value, index) => (
+    //        <TablecountCell number={index+1} count={Count.value[index]} />));
+    let template = () => [...Array(parseInt(Count.items)),].map((value, index) => (
             <TablecountCell number={index+1} count={Count.value[index]} />));
+    function UpdateTable(e) {
+        e.preventDefault()
+        Count.Update(e)
+        let TablecountTable = ReactDOM.createRoot(document.getElementsByClassName("TablecountTable")[0])
+        TablecountTable.render(template())
+    }
     return (
         <div className="TablecountRoot">
-            <form className="TablecountInput" onSubmit={Count.Update}>
+            <form className="TablecountInput" onSubmit={UpdateTable}>
                 <input id="TablecountInputText" placeholder="Number" title="test" 
                 onInvalid={Count.inputSanity} onInput={Count.inputSanity} type="number"></input>
                 <input type="submit" id="TablecountInputButton"/>
             </form>
-            {template}
+            <div className="TablecountTable">{template()}</div>
         </div>
     ); // TODO: LAYOUTING.
 }
