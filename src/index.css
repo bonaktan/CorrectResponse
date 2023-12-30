@@ -28,3 +28,16 @@ body {
 .Main {
     margin: 8px;
 }
+.DisplayRoot { overflow: hidden}
+.DisplayNavbar {
+    display: flex;
+    align-items: center; justify-content: center;
+
+}
+.DisplayNavbar div {
+    margin-left: 1%; 
+}
+#DisplayNumber {
+    font-size: 10em; overflow: hidden;
+}
+#DisplayNumber {margin-top: 0; text-align: left; margin-bottom: 0; padding-bottom: 0}
