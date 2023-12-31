@@ -1,8 +1,21 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 
+
+import ToggleButton from '@mui/material/ToggleButton';
+import { ThemeProvider, createTheme } from '@mui/material/styles';
+import { green, lime } from '@mui/material/colors';
+
+const theme = createTheme({
+  palette: {
+    primary: lime,
+    secondary: green,
+  }
+});
+
 export function Navbar({count}) {
     var state=0;
+    const [selected, setSelected] = React.useState(false);
     function MainViewSwitch() {
         let main = ReactDOM.createRoot(document.getElementsByClassName("Main")[0])
         main.render((state===0) ? <Tablecount Count={count}/> : <Display Count={count} />)
@@ -10,15 +23,18 @@ export function Navbar({count}) {
     }
 
     return (
-    <nav className="NavbarRoot">
-        <ul className="NavbarList">
-            <li>Correct Responser</li>
-            <li id="NavbarGap"></li>
-            <li className="NavbarSettings">Settings</li> {/* TODO: Popup sa Settings, AAAAA BAT AKO NAGLIPAT
-            NG FRAMEWORK. */}
-            <li><button onClick={MainViewSwitch}>SWITCH</button></li>
-        </ul>
-    </nav>
+
+    <div className="NavbarRoot">
+        <div>Correct Responser</div>
+        <ToggleButton
+            value="check"
+            selected={selected}
+            onChange={() => { setSelected(!selected);
+        }}>
+            test
+        </ToggleButton> {/* TODO: Popup sa Settings */}
+        <div><button onClick={MainViewSwitch}>SWITCH</button></div>
+    </div>
 );}
 
 export function Tablecount({Count}) { // BUG HERE
