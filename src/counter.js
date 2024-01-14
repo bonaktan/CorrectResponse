@@ -4,9 +4,12 @@ export default class Counter {
         this._itemsCount = new Array(items).fill(0);
         this._mode = true; // true = correct ans, false = incorrect ans
         this._displayNumber = 1;
-        this._displayValue = this._itemsCount[this._displayNumber-1]
-        this.Update = (event) => { this._itemsCount[parseInt(event.target[0].value)-1] += 1 }
-        this.inputSanity = (e) => {
+        this._displayValue = this.itemsCount[this._displayNumber-1]
+        this.Update = (event) => {
+            this.itemsCount[parseInt(event.target[0].value)-1] += 1 
+        }
+
+        this.inputSanity = (e) => { // PERSIST PLEASE ANGHIRAP NYA ISULAT
             if (!/^\d+$/.test(e.target.value)) {
                 e.target.setCustomValidity("Number Only")
             }
