@@ -1,29 +1,32 @@
 // Globals
 import React, {createContext, useContext, useState} from "react"
-
+import { createRoot } from "react-dom/client"
 // Locals
-import {Navbar, Table, Display} from "./ui.js"
+import {Navbar, Table, Display, Tablecell } from "./ui.js"
 import Counter from "./counter.js"
 
+// GlobalVars
 export const Instance = createContext(null);
-export function App() {
-    const Count = new Counter(50);
-    const [Mode, setMode] = useState(MODES.Table)
-    const [items, updateItems] = useState(Count.items)
-    function Submit(e) {
-        e.preventDefault()
-        Count.Submit(parseInt(e.target[0].value)-1)
-        updateItems(!items)
+export const Count = new Counter(50);
 
-    }
+export function App() {
+    // originally here
+    const [Mode, setMode] = useState(MODES.Table)
+
     return (
-        <Instance.Provider value={{Count: Count, Submit: Submit, items: items, updateItems: updateItems}}>
+        <>
             <Navbar Mode={Mode} setMode={setMode}/>
             <Main Mode={Mode}/>
-        </Instance.Provider>
+        </>
     )
 }
 
-function Main({Mode}) { return (Mode) ? <Display/> : <Table/> }
-
+function Main(props) { return (props.Mode) ? <Display/> : <Table/>}
+export function Update(e) {
+    e.preventDefault()
+    Count.Submit(parseInt(e.target[0].value))
+    // TODO: there has to be a more proper way to implement this thing
+    let table = createRoot(document.getElementsByClassName("TablecountTable")[0])
+    table.render(<Tablecell/>)
+}
 const MODES = {Table: false, Display: true};

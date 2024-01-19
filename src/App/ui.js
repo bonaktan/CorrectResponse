@@ -1,5 +1,5 @@
-import {useContext, useEffect, useState} from "react"
-import {Instance} from "./app.js"
+import {useEffect, useState} from "react"
+import {Instance, Count, Update} from "./app.js"
 
 export function Navbar({Mode, setMode}) { return (
     <div className="NavbarRoot">
@@ -10,10 +10,10 @@ export function Navbar({Mode, setMode}) { return (
 );}
 
 export function Table() { // BUG HERE
-    const Submit = useContext(Instance).Submit;
+    // function handleSubmit(e)
     return (
         <div className="TablecountRoot">
-            <form className="TablecountInput" onSubmit={Submit}>
+            <form className="TablecountInput" onSubmit={(e) => {Update(e)} }>
                 <input id="TablecountInputText" placeholder="Number" title="test" type="number"></input>
                 <input type="submit" id="TablecountInputButton"/>
             </form>
@@ -22,20 +22,13 @@ export function Table() { // BUG HERE
     ); // TODO: LAYOUTING.
 }
 
-function Tablecell() {
-    const Mode = useContext(Instance);
-    let temp = null
-    useEffect(() => {temp = update()}, [Mode.items])
-    function update() {
-        let template=[]
-        for (let i=1; i<=Mode.items.length; i++) {
-            template.push(<p>{i}. {Mode.items[i-1]}</p>)
-        }
-        alert("ran")
-        return template
+export function Tablecell() {
+    // ig is, may initial mode and siguro lifetime shits?
+    let cache = []
+    for (let i = 1; i <= Count.items.length; i++) {
+        cache.push(<p>{i}. {Count.items[i-1]}</p>)
     }
-    temp = update()
-    return <>{temp}</>
+    return <>{cache}</>
 }
 
 export function Display() { // there has to be a better implementation of this thing
