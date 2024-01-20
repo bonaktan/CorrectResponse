@@ -1,5 +1,5 @@
 import {useEffect, useState} from "react"
-import {Instance, Count, Update} from "./app.js"
+import {Instance, Count, Update, DisplayPage} from "./app.js"
 
 export function Navbar({Mode, setMode}) { return (
     <div className="NavbarRoot">
@@ -32,20 +32,23 @@ export function Tablecell() {
 }
 
 export function Display() { // there has to be a better implementation of this thing
+    const Number= useState(1)
+    const Value = useState(Count.items[Number[0]-1])
+    const Page = useState(Number[0] + '/50')
     return (
         <div className='DisplayRoot'>
             <div className='DisplayNavbar'>
                 <div>
-                    <button id="DisplayNavbarPMax">&lt;&lt;</button>
-                    <button id="DisplayNavbarPOne">&lt;</button>
+                    <button id="DisplayNavbarPMax" onClick={() => DisplayPage(Number, Value, Page, "pmax")}>&lt;&lt;</button>
+                    <button id="DisplayNavbarPOne" onClick={() => DisplayPage(Number, Value, Page, "pone")}>&lt;</button>
                 </div>
-                <div><p id="DisplayReference">Count.displayNumber/Count.items</p></div>
+                <div><p id="DisplayReference">{Page[0]}</p></div>
                 <div>
-                    <button id="DisplayNavbarNOne">&gt;</button>
-                    <button id="DisplayNavbarNMax">&gt;&gt;</button>
+                    <button id="DisplayNavbarNOne" onClick={() => DisplayPage(Number, Value, Page, "none")}>&gt;</button>
+                    <button id="DisplayNavbarNMax" onClick={() => DisplayPage(Number, Value, Page, "nmax")}>&gt;&gt;</button>
                 </div>
             </div>
-            <h1 id="DisplayNumber">Count.displayValue</h1>
+            <h1 id="DisplayNumber">{Value[0]}</h1>
         </div>
     )
 }
