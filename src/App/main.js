@@ -1,12 +1,23 @@
 // Globals
 import {useState} from "react"
-import {Navbar, Display, Table} from './ui.jsx'
 
-
+import Counter from "./data.js"
 
 const useInput = () => {
+    const Count = Counter(50) // default is 50
     const [Mode, setMode] = useState(false) // true = display, false = display
-    return [ Mode ]
+    const [values, setValues] = useState(Count.values)
+    const toggleMode = () => { setMode(!Mode) }
+    
+    const submitValue = (e) => {
+        e.preventDefault()
+        Count.submitValue(parseInt(e.target[0].value))
+        setValues(Count.values)
+        alert(1)
+
+    }
+
+    return { Mode, values, toggleMode, submitValue, }
 }
 
 

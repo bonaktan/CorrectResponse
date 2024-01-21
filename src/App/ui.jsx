@@ -1,15 +1,24 @@
 import useInput from "./main.js"
 
 const CorrectResponser = () => {
-    const { Mode } = useInput()
+    const { Mode, values,
+            toggleMode, submitValue } = useInput()
     const Navbar = () => { return (
         <>
-        <p>Correct Responser</p>
-        <button>Swap</button>
+            <p>Correct Responser</p>
+            <button onClick={toggleMode}>Swap</button>
+        </>
     )}
 
     const Table = () => { return (
-        <p>Table</p>
+        <>
+            <form onSubmit={submitValue}>
+                <input></input>
+                <button type="submit">Submit</button>
+            </form>
+            <p>{values}</p>
+        </>
+
     )}
 
     const Display = () => { return (
