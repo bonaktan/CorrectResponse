@@ -1,5 +1,5 @@
 // Globals
-import {useReducer, useState} from "react"
+import {useReducer, useRef, useState} from "react"
 
 import Counter from "./data.js"
 import {Tablecells} from "./helpers.js"
@@ -7,7 +7,7 @@ import {Tablecells} from "./helpers.js"
 const useInput = () => {
     const Count = Counter(50) // default is 50
 
-    const [Mode, setMode] = useState(true) // true = display, false = display
+    const [Mode, setMode] = useState(false) // true = display, false = display
     const [values, setValues] = useState(Tablecells(Count.values.current))
     const toggleMode = () => { setMode(!Mode) }
     const submitValue = (e) => {
