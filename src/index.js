@@ -1,9 +1,9 @@
-import * as React from 'react'
-import ReactDOM from 'react-dom/client'
+import ReactDOM from "react-dom/client";
 
-import CorrectResponser from "./App/ui.jsx"
+import CorrectResponser from "./App/ui.jsx";
+import "./index.css"
 function init() {
-    const root = ReactDOM.createRoot(document.getElementById("root"))
-    root.render(<CorrectResponser/>)
+    const root = ReactDOM.createRoot(document.getElementById("root"));
+    root.render(<CorrectResponser />);
 }
-init()
+init();
