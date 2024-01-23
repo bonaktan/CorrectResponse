@@ -11,8 +11,7 @@ const Counter = (items) => {
     });
     const submitValue = (input) => {
         // this thing has been sanitychecked already
-        // we will go regex-style bit custom and less efficient (ig)
-
+        
         // Flag for Addition/Subtraction
         let isSubtract = input[0] === "-"; // flag to check if we shall add or not
         if (isSubtract) {
@@ -21,7 +20,15 @@ const Counter = (items) => {
 
         // Flag for Ranged Inputs
         input = input.split("-")
-        let isRanged = input.length === 2 // TODO implement shit
+        if (input.length === 2) { // Range of Values Input
+            for (let i=input[0]; i<=input[1]; i++) {
+                isSubtract ? values.current[i-1] -= 1 : values.current[i-1] += 1
+            }
+        }
+        else { // Captures Number-only
+            isSubtract ? values.current[input[0]-1] -= 1 : values.current[input[0]-1] += 1
+        }
+
     };
     return { values, submitValue, page };
 };

@@ -1,5 +1,5 @@
 // Globals
-import { useReducer, useState } from "react";
+import { useReducer, useState, useRef } from "react";
 
 import Counter from "./data.js";
 import { Tablecells } from "./helpers.js";
@@ -11,26 +11,47 @@ const useInput = () => {
     const toggleMode = () => {
         setMode(!Mode);
     };
+    const commands = useRef([])
     const submitValue = (e) => {
+        let input = e.target[0].value
         e.preventDefault();
-        Count.submitValue(parseInt(e.target[0].value));
+        let isUndo = input === "."
+        if (isUndo) {
+            input = commands.current.pop()
+            input = (input[0] === "-") ? input.substring(1) : "-" + input
+        }
+        else { commands.current.push(input) }
+        Count.submitValue(input);
         setValues(Tablecells(Count.values.current));
+        
     };
     const sanityCheck = (e) => {
-        /*
+        
         let validity = "";
-        if (!/^\d+$/.test(e.target.value)) {
-            validity = "Number Only";
-        } else if (0 >= parseInt(e.target.value)) {
-            validity = "Out of Range";
-        } else if (
-            parseInt(e.target.value) >=
-            Count.values.current.length + 1
-        ) {
-            validity = "Out of Range";
+        let input = e.target.value
+        // maybe go for a full regex on this one
+        if (input[0] === "-") { input = input.substring(1) }
+        
+        if (!/(^\.$)|(^\d+(-\d+$)?$)/g.test(input)) {
+            e.target.setCustomValidity("Invalid Input"); return; // efficiency 
+        }
+        
+        if (input === ".") {
+            console.log(commands.current)
+            if (commands.current.length <= 0) { validity = "No Undo Available" }
+            e.target.setCustomValidity(validity); return
+        }
+        input = input.split("-").map(val => parseInt(val))
+        if (input.length == 2) { // Ranged Jalues
+            if (!(input[0] < input[1])) { validity = "First Value should be less than Second Value" }
+            else if (!((1 <= input[0]) && (input[0] <= page.max))) { validity = "First Value Out of Range"}
+            else if (!((1 <= input[1]) && (input[1] <= page.max))) { validity = "Second Value Out of Range" }
+        }
+        else {
+            if (!((1 <= input[0]) && (input[0] <= page.max))) { validity = "Out of Range" }
         }
         e.target.setCustomValidity(validity);
-        */
+        
     }; 
 
     const DisplayNavigation = (state, action) => {
