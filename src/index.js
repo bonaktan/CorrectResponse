@@ -1,7 +1,9 @@
-import { createRoot } from 'react-dom/client';
+import ReactDOM from "react-dom/client";
 
-import './index.css';
-import { App } from "./App/app.js"
-import { StrictMode } from 'react';
-
-function init() { const root = createRoot(document.getElementById('root')); root.render(<StrictMode><App /></StrictMode>);}; init()
+import CorrectResponser from "./App/ui.jsx";
+import "./index.css"
+function init() {
+    const root = ReactDOM.createRoot(document.getElementById("root"));
+    root.render(<CorrectResponser />);
+}
+init();
