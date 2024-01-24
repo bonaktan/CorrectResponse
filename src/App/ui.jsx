@@ -65,7 +65,7 @@ const CorrectResponser = () => {
             <Container maxWidth={false}>
                 <Container>
                     <form onSubmit={submitValue} xs={{align: "center"}}>
-                        <TextField onChange={sanityCheck} onInvalid={error} inputProps={{inputMode: "numeric"}}></Input>
+                        <TextField onChange={sanityCheck} onInvalid={error} inputProps={{inputMode: "numeric"}}></TextField>
                         <Button type="submit">Submit</Button>
                     </form>
                 </Container>
