@@ -9,9 +9,19 @@ const Counter = (items) => {
         max: values.current.length,
         value: values.current[0],
     });
-    const submitValue = (num) => {
-        values.current[num - 1] += 1;
-        console.log(values);
+    const submitValue = (input) => {
+        // this thing has been sanitychecked already
+        // we will go regex-style bit custom and less efficient (ig)
+
+        // Flag for Addition/Subtraction
+        let isSubtract = input[0] === "-"; // flag to check if we shall add or not
+        if (isSubtract) {
+            input = input.substring(1);
+        }
+
+        // Flag for Ranged Inputs
+        input = input.split("-")
+        let isRanged = input.length === 2 // TODO implement shit
     };
     return { values, submitValue, page };
 };

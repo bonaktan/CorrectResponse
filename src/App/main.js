@@ -6,7 +6,6 @@ import { Tablecells } from "./helpers.js";
 
 const useInput = () => {
     const Count = Counter(50); // default is 50
-
     const [Mode, setMode] = useState(false); // true = display, false = display
     const [values, setValues] = useState(Tablecells(Count.values.current));
     const toggleMode = () => {
@@ -18,6 +17,7 @@ const useInput = () => {
         setValues(Tablecells(Count.values.current));
     };
     const sanityCheck = (e) => {
+        /*
         let validity = "";
         if (!/^\d+$/.test(e.target.value)) {
             validity = "Number Only";
@@ -30,7 +30,9 @@ const useInput = () => {
             validity = "Out of Range";
         }
         e.target.setCustomValidity(validity);
-    };
+        */
+    }; 
+
     const DisplayNavigation = (state, action) => {
         switch (action) {
             case "PMAX":
@@ -57,7 +59,6 @@ const useInput = () => {
         return state;
     };
     const [, forceUpdate] = useReducer((x) => x + 1, 0); // NON-IDEAL BUT WHATEVER
-
     const [page, pagenav] = useReducer(DisplayNavigation, Count.page.current);
     return {
         Mode,

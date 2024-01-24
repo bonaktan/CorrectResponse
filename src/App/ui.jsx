@@ -1,5 +1,4 @@
 import useInput from "./main.js";
-
 import {
     Container,
     CssBaseline,
@@ -13,6 +12,7 @@ import {
     Typography,
     Button,
     Input,
+    TextField,
     ToggleButton,
     Box,
     TableContainer
@@ -65,7 +65,7 @@ const CorrectResponser = () => {
             <Container maxWidth={false}>
                 <Container>
                     <form onSubmit={submitValue} xs={{align: "center"}}>
-                        <Input onChange={sanityCheck} onInvalid={error}></Input>
+                        <TextField onChange={sanityCheck} onInvalid={error} inputProps={{inputMode: "numeric"}}></Input>
                         <Button type="submit">Submit</Button>
                     </form>
                 </Container>
