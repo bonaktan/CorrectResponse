@@ -60,6 +60,7 @@ const CorrectResponser = () => {
                             onChange={sanityCheck}
                             onInvalid={error}
                             inputProps={{ inputMode: "numeric" }}
+                            autoFocus
                         />
                         <Button type="submit">Submit</Button>
                     </form>

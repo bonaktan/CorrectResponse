@@ -1,12 +1,14 @@
-import { Grid, Stack, Paper, Container } from "@mui/material";
+import { Grid } from "@mui/material";
 
 export function Tablecells(values) {
     let length = 10; // TODO: shall be calculated instead
     let rows = 5; // TODO: shall be calculated instead
     let cache = Array.from({ length: rows }, () => new Array(length));
     let template = (num) => (
-        <Grid item key={num}>
-            {num}. {values[num - 1]}
+        <Grid item key={"item"+num}>
+            <p>
+                {num}. {values[num - 1]}
+            </p>
         </Grid>
     );
     let rowCount = 0;
@@ -23,9 +25,9 @@ export function Tablecells(values) {
     }
     return (
         <>
-            {cache.map((rowArray) => {
+            {cache.map((rowArray, index) => {
                 return (
-                    <Grid item container direction="column" xs={2}>
+                    <Grid item container direction="column" xs={2} key={"row"+index}>
                         {rowArray}
                     </Grid>
                 );

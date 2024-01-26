@@ -24,7 +24,7 @@ const useInput = () => {
         }
         Count.submitValue(input);
         setValues(Tablecells(Count.values.current));
-        document.getElementById("TableInput").focus();
+        
     };
     const sanityCheck = (e) => {
         let validity = "";
