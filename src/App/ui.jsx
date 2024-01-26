@@ -7,16 +7,7 @@ import {
     createTheme,
 } from "@mui/material";
 import Paper from "@mui/material/Paper";
-import {
-    Stack,
-    Typography,
-    Button,
-    Input,
-    TextField,
-    ToggleButton,
-    Box,
-    TableContainer
-} from "@mui/material";
+import { Stack, Typography, Button, Input, ToggleButton } from "@mui/material";
 
 import VisibilityIcon from "@mui/icons-material/Visibility";
 import SettingsIcon from "@mui/icons-material/Settings";
@@ -64,28 +55,22 @@ const CorrectResponser = () => {
         return (
             <Container maxWidth={false}>
                 <Container>
-                    <form onSubmit={submitValue} xs={{align: "center"}}>
-                        <TextField onChange={sanityCheck} onInvalid={error} inputProps={{inputMode: "numeric"}}></TextField>
+                    <form onSubmit={submitValue} style={{ align: "center" }}>
+                        <Input
+                            onChange={sanityCheck}
+                            onInvalid={error}
+                            inputProps={{ inputMode: "numeric" }}
+                        />
                         <Button type="submit">Submit</Button>
                     </form>
                 </Container>
-                <Grid container spacing={1} columns={{xs: 5, md: 6}} sx={{textAlign: "center"}}>
-                    {/* values */}
-                    <Grid item xs={1}>
-                        <p>1. 100</p>
-                    </Grid>
-                    <Grid item xs={1}>
-                        <p>2. 100</p>
-                    </Grid>
-                    <Grid item xs={1}>
-                        <p>3. 100</p>
-                    </Grid>
-                    <Grid item xs={1}>
-                        <p>4. 100</p>
-                    </Grid>
-                    <Grid item xs={1}>
-                        <p>5. 100</p>
-                    </Grid>
+                <Grid
+                    direction="row"
+                    container
+                    sx={{ textAlign: "center" }}
+                    columns={{ xs: 5 }}
+                    justifyContent="center">
+                    {values}
                 </Grid>
             </Container>
         );
