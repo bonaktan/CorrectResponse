@@ -79,34 +79,39 @@ const CorrectResponser = () => {
 
     const Display = () => {
         return (
-            <>
-                <span>
-                    <button
+            <Container>
+                <Stack direction="row" alignItems="center" justifyContent="center">
+                    <Button
                         onClick={() => pagenav("PMAX")}
                         disabled={!page.prev}>
                         &lt;&lt;
-                    </button>
-                    <button
+                    </Button>
+                    <Button
                         onClick={() => pagenav("PONE")}
                         disabled={!page.prev}>
                         &lt;
-                    </button>
+                    </Button>
                     <p>
                         {page.num}/{page.max}
                     </p>
-                    <button
+                    <Button
                         onClick={() => pagenav("NONE")}
                         disabled={!page.next}>
                         &gt;
-                    </button>
-                    <button
+                    </Button>
+                    <Button
                         onClick={() => pagenav("NMAX")}
                         disabled={!page.next}>
                         &gt;&gt;
-                    </button>
-                </span>
-                <p>{page.value}</p>
-            </>
+                    </Button>
+                </Stack>
+                <p style={{
+                    fontSize: "40rem",
+                    margin: 0, padding: 0, lineHeight: 1,
+                    textAlign: "center",
+                    overflow: "hidden"
+                }}>{page.value}</p>
+            </Container>
         );
     };
 

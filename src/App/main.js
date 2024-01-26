@@ -6,7 +6,7 @@ import { Tablecells } from "./helpers.js";
 
 const useInput = () => {
     const Count = Counter(50); // default is 50
-    const [Mode, setMode] = useState(false); // true = display, false = display
+    const [Mode, setMode] = useState(true); // true = display, false = display
     const [values, setValues] = useState(Tablecells(Count.values.current));
     const toggleMode = () => {
         setMode(!Mode);
@@ -24,7 +24,7 @@ const useInput = () => {
         }
         Count.submitValue(input);
         setValues(Tablecells(Count.values.current));
-        
+        pagenav("UpdateCurrent") 
     };
     const sanityCheck = (e) => {
         let validity = "";
@@ -78,6 +78,8 @@ const useInput = () => {
                 break;
             case "NMAX":
                 state.num = state.max;
+                break;
+            case "UpdateCurrent":
                 break;
             default:
                 alert("error");

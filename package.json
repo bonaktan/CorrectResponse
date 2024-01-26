@@ -1,6 +1,6 @@
 {
-  "name": "correctresponser",
-  "version": "0.1.0",
+  "name": "Correct Response",
+  "version": "0.2.0",
   "homepage": "https://bonaktan.github.io/CorrectResponse",
   "private": false,
   "dependencies": {
