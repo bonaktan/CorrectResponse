@@ -22,7 +22,7 @@ const useInput = () => {
         } else {
             commands.current.push(input);
         }
-        Count.submitValue(input);
+        Count.AddModeSubmit(input);
         setValues(Tablecells(Count.values.current));
         pagenav("UpdateCurrent") 
     };

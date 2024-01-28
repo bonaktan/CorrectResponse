@@ -1,7 +1,7 @@
 import { useRef } from "react";
 
 const Counter = (items) => {
-    const values = useRef(new Array(items).fill(0));
+    const values = useRef(new Array(items).fill(17)); // TEMPORARY, FOR IMPLEMENTING SUBTRACT MODE
     const page = useRef({
         prev: false,
         next: true,
@@ -9,7 +9,7 @@ const Counter = (items) => {
         max: values.current.length,
         value: values.current[0],
     });
-    const submitValue = (input) => {
+    const AddModeSubmit = (input) => {
         // this thing has been sanitychecked already
 
         // Flag for Addition/Subtraction
@@ -34,7 +34,7 @@ const Counter = (items) => {
                 : (values.current[input[0] - 1] += 1);
         }
     };
-    return { values, submitValue, page };
+    return { values, AddModeSubmit, page };
 };
 
 export default Counter;
