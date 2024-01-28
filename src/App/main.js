@@ -29,8 +29,10 @@ const useInput = () => {
     const sanityCheck = (e) => {
         let validity = "";
         let input = e.target.value;
+        let isSubtract = false
         // maybe go for a full regex on this one
         if (input[0] === "-") {
+            isSubtract = true
             input = input.substring(1);
         }
 
@@ -48,18 +50,21 @@ const useInput = () => {
             return;
         }
         input = input.split("-").map((val) => parseInt(val));
-        if (input.length === 2) {
-            // Ranged Jalues
+        if (input.length === 2) { // Ranged Jalues
             if (!(input[0] < input[1])) {
                 validity = "First Value should be less than Second Value";
             } else if (!(1 <= input[0] && input[0] <= page.max)) {
                 validity = "First Value Out of Range";
             } else if (!(1 <= input[1] && input[1] <= page.max)) {
                 validity = "Second Value Out of Range";
+            } else if (isSubtract && (Count.values.current.slice(input[0]-1, input[1]-1).some(n => n <= 0))) {
+                validity = "Atleast 1 number is already 0"
             }
         } else {
             if (!(1 <= input[0] && input[0] <= page.max)) {
                 validity = "Out of Range";
+            } else if ( isSubtract && (Count.values.current[input[0]-1] <= 0)) {
+                validity = "Number is already 0"
             }
         }
         e.target.setCustomValidity(validity);
