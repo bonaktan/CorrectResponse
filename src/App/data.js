@@ -34,7 +34,33 @@ const Counter = (items) => {
                 : (values.current[input[0] - 1] += 1);
         }
     };
-    return { values, AddModeSubmit, page };
+
+    const SubtractModeSubmit = (input) => {
+        // this thing has been sanitychecked already
+
+        // Flag for Addition/Subtraction
+        let isAdd = input[0] === "-"; // flag to check if we shall add or not
+        if (isAdd) {
+            input = input.substring(1);
+        }
+
+        // Flag for Ranged Inputs
+        input = input.split("-");
+        if (input.length === 2) {
+            // Range of Values Input
+            for (let i = input[0]; i <= input[1]; i++) {
+                isAdd
+                    ? (values.current[i - 1] += 1)
+                    : (values.current[i - 1] -= 1);
+            }
+        } else {
+            // Captures Number-only
+            isAdd
+                ? (values.current[input[0] - 1] += 1)
+                : (values.current[input[0] - 1] -= 1);
+        }
+    };
+    return { values, AddModeSubmit: SubtractModeSubmit, page };
 };
 
 export default Counter;
