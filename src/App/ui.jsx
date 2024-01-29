@@ -25,8 +25,8 @@ const CorrectResponser = () => {
         submitValue,
         sanityCheck,
         error,
-        page,
-        pagenav,
+        DisplayData,
+        DisplayNavigation,
     } = useInput();
     const Navbar = () => {
         return (
@@ -82,26 +82,26 @@ const CorrectResponser = () => {
             <Container>
                 <Stack direction="row" alignItems="center" justifyContent="center">
                     <Button
-                        onClick={() => pagenav("PMAX")}
-                        disabled={!page.prev}>
+                        onClick={() => DisplayNavigation("PMAX")}
+                        disabled={!DisplayData.prev}>
                         &lt;&lt;
                     </Button>
                     <Button
-                        onClick={() => pagenav("PONE")}
-                        disabled={!page.prev}>
+                        onClick={() => DisplayNavigation("PONE")}
+                        disabled={!DisplayData.prev}>
                         &lt;
                     </Button>
                     <p>
-                        {page.num}/{page.max}
+                        {DisplayData.num}/{DisplayData.max}
                     </p>
                     <Button
-                        onClick={() => pagenav("NONE")}
-                        disabled={!page.next}>
+                        onClick={() => DisplayNavigation("NONE")}
+                        disabled={!DisplayData.next}>
                         &gt;
                     </Button>
                     <Button
-                        onClick={() => pagenav("NMAX")}
-                        disabled={!page.next}>
+                        onClick={() => DisplayNavigation("NMAX")}
+                        disabled={!DisplayData.next}>
                         &gt;&gt;
                     </Button>
                 </Stack>
@@ -110,7 +110,7 @@ const CorrectResponser = () => {
                     margin: 0, padding: 0, lineHeight: 1,
                     textAlign: "center",
                     overflow: "hidden"
-                }}>{page.value}</p>
+                }}>{DisplayData.value}</p>
             </Container>
         );
     };
