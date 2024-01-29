@@ -41,7 +41,7 @@ const CorrectResponser = () => {
     } = useInput();
     const Navbar = () => {
         return (
-            <Paper elevation={1} sx={{ padding: "1rem" }} variant="outlined">
+            <Paper elevation={0} sx={{ padding: "1rem" }} variant="outlined">
                 <Stack
                     direction="row"
                     justifyContent="space-around"
@@ -53,7 +53,7 @@ const CorrectResponser = () => {
                         <Button style={{display: "none"}}> { /* WARN: hidden until fully implemented */}
                             <SettingsIcon />
                         </Button>
-                        <ToggleButton onChange={toggleMode} selected={Mode}>
+                        <ToggleButton value="DisplayMode" onChange={toggleMode} selected={Mode}>
                             <VisibilityIcon />
                         </ToggleButton>
                     </Stack>
