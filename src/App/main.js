@@ -1,5 +1,5 @@
 // Globals
-import { useReducer, useState, useRef } from "react";
+import { useReducer, useState } from "react";
 
 import Counter from "./data.js";
 import { Tablecells } from "./helpers.js";
@@ -68,12 +68,14 @@ const useInput = () => {
     const [, forceUpdate] = useReducer((x) => x + 1, 0); // NON-IDEAL BUT WHATEVER
     return {
         Mode,
+        InputMode: Count.InputMode,
         values,
         toggleMode,
         submitValue,
         sanityCheck,
         DisplayData: Count.DisplayData,
         DisplayNavigation,
+        setInputMode: Count.setInputMode
     };
 };
 

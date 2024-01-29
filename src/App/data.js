@@ -179,6 +179,7 @@ const Counter = (items) => {
         DisplayData,
         updateDisplayData,
         commands,
+        setInputMode
     };
 };
 

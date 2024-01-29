@@ -2,15 +2,24 @@ import useInput from "./main.js";
 import {
     Container,
     CssBaseline,
+    FormControlLabel,
     Grid,
     ThemeProvider,
     createTheme,
 } from "@mui/material";
 import Paper from "@mui/material/Paper";
-import { Stack, Typography, Button, Input, ToggleButton } from "@mui/material";
+import {
+    Stack,
+    Typography,
+    Button,
+    Input,
+    ToggleButton,
+    Checkbox,
+} from "@mui/material";
 
 import VisibilityIcon from "@mui/icons-material/Visibility";
 import SettingsIcon from "@mui/icons-material/Settings";
+
 const theme = createTheme({
     palette: {
         mode: "dark",
@@ -27,6 +36,8 @@ const CorrectResponser = () => {
         error,
         DisplayData,
         DisplayNavigation,
+        InputMode,
+        setInputMode,
     } = useInput();
     const Navbar = () => {
         return (
@@ -42,7 +53,7 @@ const CorrectResponser = () => {
                         <Button>
                             <SettingsIcon />
                         </Button>
-                        <ToggleButton onClick={toggleMode} selected={Mode}>
+                        <ToggleButton onChange={toggleMode} selected={Mode}>
                             <VisibilityIcon />
                         </ToggleButton>
                     </Stack>
@@ -54,17 +65,33 @@ const CorrectResponser = () => {
     const Table = () => {
         return (
             <Container maxWidth={false}>
-                <Container>
+                <Stack
+                    direction="row"
+                    alignItems="center"
+                    justifyContent="space-evenly">
                     <form onSubmit={submitValue} style={{ align: "center" }}>
                         <Input
                             onChange={sanityCheck}
                             onInvalid={error}
                             inputProps={{ inputMode: "numeric" }}
+                            style={{width: "6rem"}}
                             autoFocus
                         />
                         <Button type="submit">Submit</Button>
                     </form>
-                </Container>
+                    <Stack direction="row">
+                        <FormControlLabel
+                            control={
+                                <Checkbox
+                                    checked={!InputMode}
+                                    onChange={() => setInputMode(!InputMode)}
+                                />
+                            }
+                            label="Subtract Mode"
+                        />
+                        <Input style={{width: "3rem"}} /> { /* TODO: put the adjustable population in */ }
+                    </Stack>
+                </Stack>
                 <Grid
                     direction="row"
                     container
@@ -80,7 +107,10 @@ const CorrectResponser = () => {
     const Display = () => {
         return (
             <Container>
-                <Stack direction="row" alignItems="center" justifyContent="center">
+                <Stack
+                    direction="row"
+                    alignItems="center"
+                    justifyContent="center">
                     <Button
                         onClick={() => DisplayNavigation("PMAX")}
                         disabled={!DisplayData.prev}>
@@ -105,12 +135,17 @@ const CorrectResponser = () => {
                         &gt;&gt;
                     </Button>
                 </Stack>
-                <p style={{
-                    fontSize: "40rem",
-                    margin: 0, padding: 0, lineHeight: 1,
-                    textAlign: "center",
-                    overflow: "hidden"
-                }}>{DisplayData.value}</p>
+                <p
+                    style={{
+                        fontSize: "40rem",
+                        margin: 0,
+                        padding: 0,
+                        lineHeight: 1,
+                        textAlign: "center",
+                        overflow: "hidden",
+                    }}>
+                    {DisplayData.value}
+                </p>
             </Container>
         );
     };
