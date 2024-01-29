@@ -50,7 +50,7 @@ const CorrectResponser = () => {
                         Correct Responser
                     </Typography>
                     <Stack direction="row" spacing={1}>
-                        <Button>
+                        <Button style={{display: "none"}}> { /* WARN: hidden until fully implemented */}
                             <SettingsIcon />
                         </Button>
                         <ToggleButton onChange={toggleMode} selected={Mode}>
@@ -79,7 +79,7 @@ const CorrectResponser = () => {
                         />
                         <Button type="submit">Submit</Button>
                     </form>
-                    <Stack direction="row">
+                    <Stack direction="row" style={{display: "none"}}> { /* WARN: hidden until fully implemented */}
                         <FormControlLabel
                             control={
                                 <Checkbox

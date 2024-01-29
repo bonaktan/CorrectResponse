@@ -2,7 +2,7 @@ import { useRef, useState, useReducer } from "react";
 
 const Counter = (items) => {
     // TODO: this is having too much responsibilities
-    const values = useRef(new Array(items).fill(17)); // TEMPORARY, FOR IMPLEMENTING SUBTRACT MODE
+    const values = useRef(new Array(items).fill(0));
     const page = {
         prev: false,
         next: true,
@@ -10,7 +10,7 @@ const Counter = (items) => {
         max: values.current.length,
         value: values.current[0],
     };
-    const [InputMode, setInputMode] = useState(false); // true = Add, false = Subtract
+    const [InputMode, setInputMode] = useState(true); // true = Add, false = Subtract
     const commands = useRef([]);
     const AddModeSubmit = (input) => {
         // this thing has been sanitychecked already
