@@ -65,6 +65,16 @@ const useInput = () => {
         Count.updateDisplayData(num);
         forceUpdate(); // NOT IDEAL
     };
+    const setPopulation = (e) => {
+        if (!(e.key === "Enter")) {
+            return;
+        } else if (!/^\d+$/.test(e.target.value)) {
+            return;
+        }
+        else if (!window.confirm("WARNING: This feature is not yet fully implemented. Pressing Yes will reset all of your progress")) { return; }
+        Count.setValues(parseInt(e.target.value))
+        forceUpdate()
+    };
     const [, forceUpdate] = useReducer((x) => x + 1, 0); // NON-IDEAL BUT WHATEVER
     return {
         Mode,
@@ -75,7 +85,9 @@ const useInput = () => {
         sanityCheck,
         DisplayData: Count.DisplayData,
         DisplayNavigation,
-        setInputMode: Count.setInputMode
+        setInputMode: Count.setInputMode,
+        population: Count.population.current,
+        setPopulation,
     };
 };
 

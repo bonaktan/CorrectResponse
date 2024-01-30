@@ -38,6 +38,8 @@ const CorrectResponser = () => {
         DisplayNavigation,
         InputMode,
         setInputMode,
+        population,
+        setPopulation
     } = useInput();
     const Navbar = () => {
         return (
@@ -79,7 +81,7 @@ const CorrectResponser = () => {
                         />
                         <Button type="submit">Submit</Button>
                     </form>
-                    <Stack direction="row" style={{display: "none"}}> { /* WARN: hidden until fully implemented */}
+                    <Stack direction="row"> { /* WARN: hidden until fully implemented */}
                         <FormControlLabel
                             control={
                                 <Checkbox
@@ -89,7 +91,7 @@ const CorrectResponser = () => {
                             }
                             label="Subtract Mode"
                         />
-                        <Input style={{width: "3rem"}} /> { /* TODO: put the adjustable population in */ }
+                        <Input style={{width: "3rem"}} defaultValue={population} onKeyDown={setPopulation}/> { /* TODO: put the adjustable population in */ }
                     </Stack>
                 </Stack>
                 <Grid

@@ -2,7 +2,8 @@ import { useRef, useState, useReducer } from "react";
 
 const Counter = (items) => {
     // TODO: this is having too much responsibilities
-    const values = useRef(new Array(items).fill(0));
+    const population = useRef(17) // default
+    const values = useRef(new Array(items).fill(population.current));
     const page = {
         prev: false,
         next: true,
@@ -10,7 +11,7 @@ const Counter = (items) => {
         max: values.current.length,
         value: values.current[0],
     };
-    const [InputMode, setInputMode] = useState(true); // true = Add, false = Subtract
+    const [InputMode, setInputMode] = useState(false); // true = Add, false = Subtract // TEMPORARY
     const commands = useRef([]);
     const AddModeSubmit = (input) => {
         // this thing has been sanitychecked already
@@ -167,6 +168,8 @@ const Counter = (items) => {
 
         return state;
     };
+
+    const setValues = (num) => { values.current = new Array(items).fill(num); population.current = num}
     const [DisplayData, updateDisplayData] = useReducer(setDisplayData, page);
     return {
         values,
@@ -179,7 +182,9 @@ const Counter = (items) => {
         DisplayData,
         updateDisplayData,
         commands,
-        setInputMode
+        setInputMode,
+        population,
+        setValues
     };
 };
 
