@@ -1,10 +1,13 @@
-import ReactDOM from "react-dom/client";
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import './index.css';
+import App from './App';
 
-import CorrectResponser from "./App/ui.jsx";
-import "./index.css";
 
-function init() {
-    const root = ReactDOM.createRoot(document.getElementById("root"));
-    root.render(<CorrectResponser />);
-}
-init();
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>
+);
+
