@@ -1,10 +1,12 @@
-import ReactDOM from "react-dom/client";
+// Packages
+import React from 'react';
+import ReactDOM from 'react-dom/client';
 
-import CorrectResponser from "./App/ui.jsx";
-import "./index.css";
+// Users
+import './App/assets/globals.css';
+import CorrectResponser from './App/ui/CorrectResponse.jsx';
 
-function init() {
-    const root = ReactDOM.createRoot(document.getElementById("root"));
-    root.render(<CorrectResponser />);
-}
-init();
+
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(<CorrectResponser />);
+
