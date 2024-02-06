@@ -1,7 +1,12 @@
 import React from 'react';
 
-const Navbar = () => {
-    return <p>Navbar</p>;
+const Navbar = ({swapDisplayMode}) => {
+    return (
+        <div id="NavbarRoot">
+            <p>Navbar</p>
+            <button onClick={swapDisplayMode}>test</button>
+        </div>
+    );
 };
 
 export default Navbar;

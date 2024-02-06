@@ -32,5 +32,6 @@ module.exports = {
         '@kalimahapps/tailwind/sort': 'warn',
         '@kalimahapps/tailwind/multiline': 'warn',
         'indent': ['error', 4],
+        'react/prop-types': 0,
     },
 };

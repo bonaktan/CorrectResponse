@@ -1,9 +1,9 @@
-import {useRef} from 'react';
+// Data
 import {DisplayMode as enumDisplayMode} from './enums.js';
 
-const Globals = () => {
-    const DisplayMode = useRef(enumDisplayMode.Input);
-    return {DisplayMode};
+// Purpose: Store the Default Variables when launching the app
+const Globals = {
+    DisplayMode: enumDisplayMode.Input,
 };
 
 export {Globals};

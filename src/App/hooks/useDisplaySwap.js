@@ -1,16 +1,22 @@
-// import {useState} from 'react';
+// packages
+import {useState} from 'react';
 
+// Data
 import {Globals as globals} from '../data/globals.js';
 import {DisplayMode as enumDisplayMode} from '../data/enums';
 
+// PURPOSE: Swap Input and Display with a custom setter
 const useDisplaySwaps = () => {
-    const displayMode = globals().DisplayMode.current;
+    const [displayMode, setDisplayMode] = useState(globals.DisplayMode);
+
     const SwapDisplay = (e) => {
-        displayMode = (displayMode === enumDisplayMode.Input) ?
+        alert(displayMode);
+        setDisplayMode((displayMode === enumDisplayMode.Input) ?
             enumDisplayMode.Display :
-            enumDisplayMode.Input;
+            enumDisplayMode.Input,
+        );
     };
-    return (displayMode, SwapDisplay);
+    return [displayMode, SwapDisplay];
 };
 
 export default useDisplaySwaps;
