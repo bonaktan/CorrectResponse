@@ -16,9 +16,13 @@ const useCounter = () => {
     // eslint-disable-next-line no-unused-vars
     const [items, _setItems] = useState(globals.Items);
     // eslint-disable-next-line no-unused-vars
-    const [ValueList, _setValueList] = useState(new Array(items).fill(17));
+    const [ValueList, _setValueList] = useState(new Array(items).fill(0));
     const InputItem = (e) => {
-        throw new Error('Not implemented');
+        e.preventDefault();
+        const temp = ValueList;
+        temp[parseInt(e.target[0].value)-1] = 10;
+        _setValueList(temp);
+        alert(ValueList);
     };
 
     return [InputItem, ValueList];

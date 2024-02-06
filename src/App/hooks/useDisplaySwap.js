@@ -1,4 +1,4 @@
-// packages
+// Packages
 import {useState} from 'react';
 
 // Data
@@ -10,7 +10,6 @@ const useDisplaySwaps = () => {
     const [displayMode, setDisplayMode] = useState(globals.DisplayMode);
 
     const SwapDisplay = (e) => {
-        alert(displayMode);
         setDisplayMode((displayMode === enumDisplayMode.Input) ?
             enumDisplayMode.Display :
             enumDisplayMode.Input,
