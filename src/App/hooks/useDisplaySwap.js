@@ -1,12 +1,16 @@
 // import {useState} from 'react';
-// import { DisplayMode as enumDisplayMode} from '../data/enums';
+
+import {Globals as globals} from '../data/globals.js';
+import {DisplayMode as enumDisplayMode} from '../data/enums';
 
 const useDisplaySwaps = () => {
-    let globals = '';
-    fetch('../data/defaults.js')
-        .then((r) => r.json())
-        .then((data) => return data);
-    //  const [DisplayMode, _useDisplayMode] = useState()
+    const displayMode = globals().DisplayMode.current;
+    const SwapDisplay = (e) => {
+        displayMode = (displayMode === enumDisplayMode.Input) ?
+            enumDisplayMode.Display :
+            enumDisplayMode.Input;
+    };
+    return (displayMode, SwapDisplay);
 };
 
 export default useDisplaySwaps;

@@ -2,8 +2,8 @@ import React from 'react';
 
 // import {DisplayMode} from '../data/enums.ts';
 
-const Main = (/* {Mode} */) => {
-    return (<p>Main</p>);
+const Main = (props) => {
+    return (<p>{props.displayMode}</p>);
 };
 
 export default Main;

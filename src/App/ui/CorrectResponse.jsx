@@ -6,11 +6,11 @@ import Main from './Main.jsx';
 import useDisplaySwaps from '../hooks/useDisplaySwap.js';
 // PURPOSE: Root of the app, Contain the Main Hook; Smart Container
 const CorrectResponser = () => {
-    const DisplaySwaps = useDisplaySwaps();
+    const [DisplayMode, swapDisplayMode] = useDisplaySwaps();
     return (
         <>
-            <Navbar />
-            <Main />
+            <Navbar swapMode={swapDisplayMode} />
+            <Main displayMode={DisplayMode}/>
         </>
     );
 };
