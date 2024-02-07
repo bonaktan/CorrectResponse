@@ -8,7 +8,7 @@ const Input = ({InputItem, ValueList}) => {
                 <input></input>
                 <button type='submit'>Submit</button>
             </form>
-            <div id='ItemTable'>
+            <div id='ItemTable' className='flex'>
                 {ValueList.map((Value, Item) => {
                     return (
                         <p key={Item}>{Item+1}. {Value}</p>

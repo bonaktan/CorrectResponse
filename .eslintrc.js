@@ -33,5 +33,6 @@ module.exports = {
         '@kalimahapps/tailwind/multiline': 'warn',
         'indent': ['error', 4],
         'react/prop-types': 0,
+        'require-jsdoc': 0,
     },
 };
