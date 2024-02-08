@@ -11,9 +11,9 @@ import useCounter from '../hooks/useCounter.js';
 
 // PURPOSE: Facilitate the DisplayMode swaps; Contain Counter Props
 const Main = ({displayMode}) => {
-    const [InputItem, ValueList] = useCounter();
+    const Counter = useCounter();
     return ((displayMode === enumDisplayMode.Input) ?
-        <Input InputItem={InputItem} ValueList={ValueList}/>:
+        <Input {...Counter}/>:
         <p>Display</p>);
 };
 

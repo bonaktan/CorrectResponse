@@ -6,6 +6,7 @@ const Globals = {
     DisplayMode: enumDisplayMode.Input,
     Items: 50,
     Population: 17,
+    subarrayLength: 10,
 };
 
 export {Globals};

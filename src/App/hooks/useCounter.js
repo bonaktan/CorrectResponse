@@ -10,22 +10,21 @@ import {useState} from 'react';
 
 // Data
 import {Globals as globals} from '../data/globals.js';
+// import {gridSquareConstructor} from '../utils.js';
 
 // PURPOSE: Store data for the Item/Value/List
 const useCounter = () => {
     // eslint-disable-next-line no-unused-vars
     const [items, _setItems] = useState(globals.Items);
     // eslint-disable-next-line no-unused-vars
-    const [ValueList, setValueList] = useState(new Array(items).fill(0));
-
+    const [ValueList, setValueList] = useState(null);
     const InputItem = (e) => {
         e.preventDefault();
         const temp = [...ValueList];
-        temp[parseInt(e.target[0].value)-1] += 1;
         setValueList(temp);
     };
 
-    return [InputItem, ValueList];
+    return {InputItem, ValueList, ItemCount: items};
 };
 
 export default useCounter;

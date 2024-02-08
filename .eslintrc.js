@@ -1,38 +1,38 @@
-module.exports = {
-    'env': {
-        'browser': true,
-        'es2021': true,
+export default {
+    "env": {
+        "browser": true,
+        "es2021": true
     },
-    'extends': [
-        'google',
-        'plugin:react/recommended',
+    "extends": [
+        "standard-with-typescript",
+        "plugin:react/recommended"
     ],
-    'overrides': [
+    "overrides": [
         {
-            'env': {
-                'node': true,
+            "env": {
+                "node": true
             },
-            'files': [
-                '.eslintrc.{js,cjs}',
+            "files": [
+                ".eslintrc.{js,cjs}"
             ],
-            'parserOptions': {
-                'sourceType': 'script',
-            },
-        },
+            "parserOptions": {
+                "sourceType": "script"
+            }
+        }
     ],
-    'parserOptions': {
-        'ecmaVersion': 'latest',
-        'sourceType': 'module',
+    "parserOptions": {
+        "ecmaVersion": "latest",
+        "sourceType": "module"
     },
-    'plugins': [
-        'react',
+    "plugins": [
+        "react",
         '@kalimahapps/eslint-plugin-tailwind',
     ],
-    'rules': {
+    "rules": {
         '@kalimahapps/tailwind/sort': 'warn',
         '@kalimahapps/tailwind/multiline': 'warn',
         'indent': ['error', 4],
         'react/prop-types': 0,
         'require-jsdoc': 0,
-    },
-};
+    }
+}
