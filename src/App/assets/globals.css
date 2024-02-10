@@ -5,6 +5,10 @@
 @font-face {
     font-family: 'Montserrat';
     src: url('./fonts/Montserrat.ttf');
+    font-family: 'Montserrat-Italic';
+    src: url('./fonts/Montserrat-Italic.ttf');
+    font-family: 'Inconsolata';
+    src: url('./fonts/Inconsolata.ttf');
 }
 
 @layer base {
@@ -12,5 +16,4 @@
         height: 100vh;
         @apply dark:bg-mirage-950 dark:text-white font-Montserrat
     }
-
 }

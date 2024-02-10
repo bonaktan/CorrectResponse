@@ -6,18 +6,27 @@ import {Globals as globals} from '../data/globals.js';
 // PURPOSE: Contain refs for the Input Cells
 const Input = ({InputItem, ValueList, ItemCount, CellRefs}) => {
     return (
-        <div id='Input' className=''>
-            <form id='InputItem' onSubmit={InputItem}>
-                <input placeholder='Input'></input>
-                <button type='submit'>Submit</button>
+        <>
+            <form id='InputItem' onSubmit={InputItem} className='flex gap-2'>
+                <input
+                    placeholder='Input'
+                    className='w-24 bg-mirage-950
+                        outline outline-1 rounded-md
+                        text-xs pl-2'></input>
+                {/* maybe put button inside input? */}
+                <button
+                    type='submit'
+                    className='dark:bg-mirage-600
+                        p-2 rounded-md text-xs
+                        hover:bg-mirage-300'>Submit</button>
             </form>
-            <div id='ItemTable' className='flex gap-4 '>
+            <div id='ItemTable' className='grid grid-cols-5 text-center'>
                 <InputTable
                     ValueList={ValueList}
                     ItemCount={ItemCount}
                     CellRefs={CellRefs} />
             </div>
-        </div>
+        </>
     );
 };
 
@@ -48,7 +57,9 @@ const InputRow = ({Row, Offset, CellRefs}) => {
                 return (
                     <p
                         ref={(ref) => CellRefs.current[ItemCount-1] = ref}
-                        key={ItemCount}>
+                        key={
+                            `Cell${ItemCount},${CellRefs.current[ItemCount-1]}`
+                        }>
                         {ItemCount}. {Item}
                     </p>
                 );
