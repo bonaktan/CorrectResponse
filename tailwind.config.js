@@ -1,9 +1,18 @@
 /** @type {import('tailwindcss').Config} */
-module.exports = {
-    content: ['./src/**/*.{html,js,jsx}'],
-    theme: {
-        extend: {},
+import {MirageColorScheme} from './src/App/assets/theme.js';
+
+export const content = ['./src/**/*.{html,js,jsx}'];
+export const theme = {
+    extend: {
+        fontFamily: {
+            Montserrat: ['Montserrat', 'sans-serif'],
+        },
     },
-    plugins: [],
+    colors: {
+        mirage: MirageColorScheme,
+        white: '#ffffff',
+    },
+
 };
+export const plugins = [];
 

@@ -1,24 +1,23 @@
 // Packages
 import React from 'react';
 
-// import {useRef} from 'react';
 import {Globals as globals} from '../data/globals.js';
 
 // PURPOSE: Contain refs for the Input Cells
 const Input = ({InputItem, ValueList, ItemCount, CellRefs}) => {
     return (
-        <>
+        <div id='Input' className=''>
             <form id='InputItem' onSubmit={InputItem}>
                 <input placeholder='Input'></input>
                 <button type='submit'>Submit</button>
             </form>
-            <div id='ItemTable' className='flex gap-4'>
+            <div id='ItemTable' className='flex gap-4 '>
                 <InputTable
                     ValueList={ValueList}
                     ItemCount={ItemCount}
                     CellRefs={CellRefs} />
             </div>
-        </>
+        </div>
     );
 };
 
@@ -48,7 +47,7 @@ const InputRow = ({Row, Offset, CellRefs}) => {
                 const ItemCount = ItemCountStart + key + 1;
                 return (
                     <p
-                        ref={(el) => CellRefs.current[ItemCount-1] = el}
+                        ref={(ref) => CellRefs.current[ItemCount-1] = ref}
                         key={ItemCount}>
                         {ItemCount}. {Item}
                     </p>

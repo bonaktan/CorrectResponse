@@ -1,3 +1,16 @@
-@tailwind base; 
+@tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@font-face {
+    font-family: 'Montserrat';
+    src: url('./fonts/Montserrat.ttf');
+}
+
+@layer base {
+    body {
+        height: 100vh;
+        @apply dark:bg-mirage-950 dark:text-white font-Montserrat
+    }
+
+}
