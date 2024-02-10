@@ -6,25 +6,34 @@
  */
 
 // Packages
-import {useState} from 'react';
+import {useState, useRef} from 'react';
 
 // Data
 import {Globals as globals} from '../data/globals.js';
-// import {gridSquareConstructor} from '../utils.js';
+import {gridSquareConstructor} from '../utils.js';
 
 // PURPOSE: Store data for the Item/Value/List
 const useCounter = () => {
     // eslint-disable-next-line no-unused-vars
     const [items, _setItems] = useState(globals.Items);
-    // eslint-disable-next-line no-unused-vars
-    const [ValueList, setValueList] = useState(null);
+    const [ValueList, setValueList] = useState(
+        gridSquareConstructor(new Array(items).fill(0)));
+    const CellRefs = useRef(new Array(items)); // used for the accessibility
+
     const InputItem = (e) => {
         e.preventDefault();
         const temp = [...ValueList];
-        setValueList(temp);
-    };
 
-    return {InputItem, ValueList, ItemCount: items};
+        const RowCoord = Math.floor((parseInt(e.target[0].value)-1) /
+            globals.subarrayLength);
+        const ColumnCoord = (parseInt(e.target[0].value)-1) -
+            RowCoord*globals.subarrayLength;
+        temp[RowCoord][ColumnCoord] += 1;
+
+        setValueList(temp);
+        e.target[0].value = '';
+    };
+    return {InputItem, ValueList, ItemCount: items, CellRefs};
 };
 
 export default useCounter;
