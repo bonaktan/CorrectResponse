@@ -10,7 +10,10 @@ import {useState, useRef} from 'react';
 
 // Data
 import {Globals as globals} from '../data/globals.js';
-import {gridSquareConstructor} from '../utils.js';
+
+// User Utils
+import gridSquareConstructor from '../utils/gridSquareConstructor.js';
+import isInputSane from '../utils/inputSanityCheck.js';
 
 // PURPOSE: Store data for the Item/Value/List
 const useCounter = () => {
@@ -23,13 +26,15 @@ const useCounter = () => {
     const InputItem = (e) => {
         e.preventDefault();
         const temp = [...ValueList];
-
+        if (!isInputSane(e.target[0].value)) {
+            alert('INVALID');
+            return 1;
+        }
         const RowCoord = Math.floor((parseInt(e.target[0].value)-1) /
             globals.subarrayLength);
         const ColumnCoord = (parseInt(e.target[0].value)-1) -
             RowCoord*globals.subarrayLength;
         temp[RowCoord][ColumnCoord] += 1;
-
         setValueList(temp);
         e.target[0].value = '';
     };
