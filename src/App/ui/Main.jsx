@@ -7,6 +7,7 @@ import Input from './Input.jsx';
 
 // Custom Hooks
 import useCounter from '../hooks/useCounter.js';
+import Display from './Display.jsx';
 
 
 // PURPOSE: Facilitate the DisplayMode swaps; Contain Counter Props
@@ -16,7 +17,7 @@ const Main = ({displayMode}) => {
         <div className='m-3'>
             {(displayMode === enumDisplayMode.Input) ?
                 <Input {...Counter}/>:
-                <p>Display</p>
+                <Display />
             }
         </div>
     );

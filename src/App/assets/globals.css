@@ -17,3 +17,7 @@
         @apply dark:bg-mirage-950 dark:text-white font-Montserrat
     }
 }
+
+#DisplayNumber {
+    font-size: 50dvw;
+}

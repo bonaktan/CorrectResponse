@@ -13,7 +13,7 @@ import useDisplaySwaps from '../hooks/useDisplaySwap.js';
 const CorrectResponser = () => {
     const [DisplayMode, swapDisplayMode] = useDisplaySwaps();
     return (
-        <div className='dark'>
+        <div className='dark h-100'>
             <Navbar swapDisplayMode={swapDisplayMode} />
             <Main displayMode={DisplayMode}/>
         </div>

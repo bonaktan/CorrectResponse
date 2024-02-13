@@ -18,10 +18,30 @@
  * - modifier 2 MUST NOT be combined with any modifiers
  * - undo MUST have something to undo upon
  */
+const parseInput = (input) => {
+    // STEP 0: define flags
+    const flags = {
+        isUndo: false,
+        isNumber: false,
+        isRange: false,
+        isInverse: false,
+        isHardSet: false,
+        isUsingShorthand: false,
+    };
 
-const isInputSane = (input) => {
-    // STEP 1: Determine if its a value or a range
+    // STEP 1: Determine if its an undo operation
+    if (input === '.') {
+        flags.isUndo = true;
+        return flags; // early for efficiency
+    }
+
+    // STEP 2: Determine if any modifiers are present (and remove them)
+    if (input[0] === '-') {
+        flags.isInverse = true;
+        input = input.substring(1);
+    }
+    alert(input);
     return false;
 };
 
-export default isInputSane;
+export default parseInput;

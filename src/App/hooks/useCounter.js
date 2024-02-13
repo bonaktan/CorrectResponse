@@ -13,7 +13,7 @@ import {Globals as globals} from '../data/globals.js';
 
 // User Utils
 import gridSquareConstructor from '../utils/gridSquareConstructor.js';
-import isInputSane from '../utils/inputSanityCheck.js';
+import parseInput from '../utils/inputSanityCheck.js';
 
 // PURPOSE: Store data for the Item/Value/List
 const useCounter = () => {
@@ -26,9 +26,15 @@ const useCounter = () => {
     const InputItem = (e) => {
         e.preventDefault();
         const temp = [...ValueList];
-        if (!isInputSane(e.target[0].value)) {
+        switch (parseInput(e.target[0].value)) {
+        case InputFormats.Undo:
+            break;
+        case InputFormats.Number:
+            break;
+        case InputFormats.Range:
+            break;
+        default:
             alert('INVALID');
-            return 1;
         }
         const RowCoord = Math.floor((parseInt(e.target[0].value)-1) /
             globals.subarrayLength);
