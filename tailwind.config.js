@@ -12,6 +12,9 @@ export const theme = {
         mirage: MirageColorScheme,
         white: '#ffffff',
     },
+    fontSize: {
+        '9xl': '50dvh',
+    },
 
 };
 export const plugins = [];
