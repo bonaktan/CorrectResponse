@@ -5,23 +5,27 @@ const Display = () => {
         <>
             <div className='flex justify-center gap-10'>
                 <div className='flex justify-center gap-2'>
-                    <button className='dark:bg-mirage-800'>
+                    <button className='dark:bg-mirage-800 p-2 rounded-l'>
                         &lt;&lt;
                     </button>
-                    <button className='dark:bg-mirage-800'>
+                    <button className='dark:bg-mirage-800 p-2 rounded-r'>
                         &lt;
                     </button>
                 </div>
-                <p>count/count</p>
+                <p className='p-2'>count/count</p>
                 <div className='flex justify-center gap-2'>
-                    <button className='dark:bg-mirage-800'>&gt;</button>
-                    <button className='dark:bg-mirage-800'>&gt;&gt;</button>
+                    <button className='dark:bg-mirage-800 p-2 rounded-l'>
+                        &gt;
+                    </button>
+                    <button className='dark:bg-mirage-800 p-2 rounded-r'>
+                        &gt;&gt;
+                    </button>
                 </div>
             </div>
             <div
                 id='DisplayNumber'
-                className='leading-none h-100'>
-                    420
+                className='leading-none h-100 text-center'>
+                    1
             </div>
         </>
     );
