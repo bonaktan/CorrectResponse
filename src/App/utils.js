@@ -1,4 +1,4 @@
-import {Globals as globals} from '../data/globals.js';
+import {Globals as globals} from './data/globals.js';
 
 function gridSquareConstructor(Value) {
     // PURPOSE: split an array into n subarrays with length 10
@@ -22,5 +22,4 @@ function gridSquareConstructor(Value) {
     // TODO: fINISH AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 }
 
-
-export default gridSquareConstructor;
+export {gridSquareConstructor};
