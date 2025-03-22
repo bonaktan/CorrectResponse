@@ -1,5 +1,5 @@
 {
-  "name": "Correct Responser",
+  "name": "CorrectResponse",
   "version": "1.0.0",
   "homepage": "https://bonaktan.github.io/CorrectResponse",
   "private": false,
@@ -9,8 +9,7 @@
     "@testing-library/user-event": "^13.5.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-scripts": "5.0.1",
-    "web-vitals": "^2.1.4"
+    "react-scripts": "5.0.1"
   },
   "scripts": {
     "predeploy": "npm run build",
@@ -39,13 +38,6 @@
     ]
   },
   "devDependencies": {
-    "@kalimahapps/eslint-plugin-tailwind": "^1.0.10",
-    "eslint": "^8.56.0",
-    "eslint-config-google": "^0.14.0",
-    "eslint-plugin-import": "^2.29.1",
-    "eslint-plugin-n": "^16.6.2",
-    "eslint-plugin-promise": "^6.1.1",
-    "eslint-plugin-react": "^7.33.2",
     "gh-pages": "^6.1.1",
     "tailwindcss": "^3.4.1"
   }

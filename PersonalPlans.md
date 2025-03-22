@@ -1,5 +1,4 @@
 # Personal Plans for Features
-- Themes (nirequest ni baba hehe mbmb)
 - Display Mode Revamp
     - use the volume button for navigation
     - Reversal Mode (ipakita kung ilan nakatama instead of mali)
