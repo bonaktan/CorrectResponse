@@ -13,8 +13,8 @@ export default function CorrectResponse() {
             <InputField/>
             <div className="flex-grow flex-shrink-0">
                 {correctResponseState.displayMode ? 
-                    <TableView/>: 
-                    <DisplayView/>}
+                    <TableView count={correctResponseState.count} refDef={correctResponseState.elements}/>: 
+                    <DisplayView display={correctResponseState.displayNum} count={correctResponseState.count}/>}
             </div>
         </div>
     );

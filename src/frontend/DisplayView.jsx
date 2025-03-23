@@ -1,5 +1,5 @@
-export default function DisplayView() {
+export default function DisplayView({display, count}) {
     return (
-        <p>1</p>
+        <p>{count[display]}</p>
     )
 }

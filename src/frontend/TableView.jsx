@@ -1,5 +1,9 @@
-export default function TableView() {
+export default function TableView({count, refDef}) {
     return (
-        <p>1. 0</p>
-    )
+        <>
+            {count.map((item, index) => {
+                return <p key={index} ref={refDef[index]}>{index+1}. {item}</p>;
+            })}
+        </>
+    );
 }
